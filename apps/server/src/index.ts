@@ -1,13 +1,16 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter, createTRPCContext } from "@dko/trpc";
 import { env } from "hono/adapter";
 import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 const app = new Hono();
+
+app.use(cors());
 
 app.use(
   "/trpc/*",

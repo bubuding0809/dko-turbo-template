@@ -10,6 +10,12 @@
     "start": "vite preview"
   },
   "dependencies": {
+    "@dko/trpc": "workspace:*",
+    "@tanstack/react-query": "^5.69.0",
+    "@trpc/client": "^11.0.0",
+    "@trpc/react-query": "^11.0.0",
+    "@trpc/server": "^11.0.0",
+    "@trpc/tanstack-react-query": "^11.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -22,7 +28,6 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
-    "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
   }
