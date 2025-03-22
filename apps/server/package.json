@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "@dko/database": "workspace:*",
+    "@dko/trpc": "workspace:*",
     "@hono/node-server": "^1.14.0",
+    "@hono/trpc-server": "^0.3.4",
+    "dotenv": "^16.4.7",
     "hono": "^4.7.5"
   },
   "devDependencies": {
