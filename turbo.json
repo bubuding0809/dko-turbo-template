@@ -20,6 +20,23 @@
     "start": {
       "cache": false,
       "persistent": true
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:deploy": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:reset": {
+      "cache": false
     }
   }
 }

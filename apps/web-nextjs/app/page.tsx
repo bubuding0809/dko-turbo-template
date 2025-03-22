@@ -1,6 +1,7 @@
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import type { User } from "@dko/database";
 
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
@@ -19,6 +20,12 @@ const ThemeImage = (props: Props) => {
 };
 
 export default function Home() {
+  const user: User = {
+    id: 1,
+    email: "1234",
+    createdAt: new Date(),
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -31,6 +38,7 @@ export default function Home() {
           height={38}
           priority
         />
+        <pre>{JSON.stringify(user, null, 2)}</pre>
         <ol>
           HELLO
           <li>
