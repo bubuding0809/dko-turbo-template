@@ -20,7 +20,12 @@ router.use(
 
 //* Add TRPC panel for testing APIs in development
 router.use("/panel", async (_req, res) => {
-  const { renderTrpcPanel = null } = await import("trpc-ui");
+  const isDevelopment =
+    process.env.NODE_ENV === "development" ||
+    process.env.VERCEL_ENV === "development";
+  const { renderTrpcPanel = null } = isDevelopment
+    ? await import("trpc-ui")
+    : {};
 
   if (!renderTrpcPanel) {
     res
