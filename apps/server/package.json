@@ -2,8 +2,8 @@
   "name": "server",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc -b",
+    "dev": "NODE_ENV=development tsx watch src/index.ts",
+    "build": "NODE_ENV=production tsc -b",
     "start": "node dist/index.js"
   },
   "dependencies": {
