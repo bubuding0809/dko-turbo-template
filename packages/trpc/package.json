@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@dko/database": "workspace:*",
-    "@trpc/server": "^11.0.0"
+    "@trpc/server": "^11.0.0",
+    "zod": "^3.24.2"
   }
 }
