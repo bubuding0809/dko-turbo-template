@@ -1,8 +1,11 @@
 import express, { Router } from "express";
 import { prisma } from "@dko/database";
 
-const app = express();
+export const config = {
+  runtime: "edge",
+};
 
+const app = express();
 const router = Router();
 
 router.get("/", (_req, res) => {
