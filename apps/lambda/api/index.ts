@@ -6,7 +6,22 @@ import { appRouter, createTRPCContext, trpcExpress } from "@dko/trpc";
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: "*", // Or specify allowed origins like: ['https://dko-web-git-develop-bubuding0809s-projects.vercel.app']
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allowedHeaders: [
+      "X-CSRF-Token",
+      "X-Requested-With",
+      "Accept",
+      "Accept-Version",
+      "Content-Length",
+      "Content-MD5",
+      "Content-Type",
+      "Date",
+      "X-Api-Version",
+    ],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   })
 );
 
