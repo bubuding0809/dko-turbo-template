@@ -12,6 +12,7 @@ const app = new Hono();
 
 app.use(cors());
 
+// Route all TRPC requests to the TRPC middleware
 app.use(
   "/trpc/*",
   trpcServer({
@@ -20,15 +21,30 @@ app.use(
   })
 );
 
-app.get("/", (c) => {
-  return c.json({ message: "Hello world" });
+// Render TRPC panel in development for testing of TRPC APIs
+app.use("/panel", async (c) => {
+  const { renderTrpcPanel } =
+    process.env.NODE_ENV === "development" ? await import("trpc-ui") : {};
+
+  if (!renderTrpcPanel)
+    return c.json(
+      { message: "TRPC panel not found in this environment" },
+      404
+    );
+
+  return c.html(
+    renderTrpcPanel(appRouter, {
+      url: "/trpc",
+      meta: {
+        title: "DKO TRPC API",
+        description: "🚀Test your TRPC APIs here 🚀",
+      },
+    })
+  );
 });
 
-app.get("/env", (c) => {
-  // NAME is process.env.NAME on Node.js or Bun
-  // NAME is the value written in `wrangler.toml` on Cloudflare
-  const envVars = env(c, "bun");
-  return c.json(envVars);
+app.get("/", (c) => {
+  return c.json({ message: "Hello world" });
 });
 
 serve(
