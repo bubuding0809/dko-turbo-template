@@ -1,7 +1,12 @@
 import express, { Router } from "express";
+import cors from "cors";
 import { appRouter, createTRPCContext, trpcExpress } from "@dko/trpc";
 
+//* Create an express app
 const app = express();
+app.use(cors());
+
+//* Create a router to handle all API requests
 const router = Router();
 
 //* Route all TRPC requests to the TRPC middleware
@@ -38,6 +43,7 @@ router.use("/panel", async (_req, res) => {
 
 app.use("/api", router);
 
+//Root path for health check
 app.get("/", (_req, res) => {
   res.status(200).json({ message: "Hello from DKO TRPC API" });
 });
