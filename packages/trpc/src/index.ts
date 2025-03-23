@@ -1,4 +1,5 @@
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
+import * as trpcExpress from "@trpc/server/adapters/express";
 
 import type { AppRouter } from "./root.js";
 import { appRouter } from "./root.js";
@@ -20,5 +21,5 @@ type RouterInputs = inferRouterInputs<AppRouter>;
  **/
 type RouterOutputs = inferRouterOutputs<AppRouter>;
 
-export { createTRPCContext, appRouter };
+export { createTRPCContext, appRouter, trpcExpress };
 export type { AppRouter, RouterInputs, RouterOutputs };

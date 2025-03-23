@@ -51,28 +51,34 @@ importers:
 
   apps/server-vercel:
     dependencies:
-      '@dko/database':
+      '@dko/trpc':
         specifier: workspace:*
-        version: link:../../packages/database
-      '@hono/node-server':
-        specifier: ^1.14.0
-        version: 1.14.0(hono@4.7.5)
+        version: link:../../packages/trpc
       express:
         specifier: ^4.21.2
         version: 4.21.2
-      hono:
-        specifier: ^4.7.5
-        version: 4.7.5
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/express':
         specifier: ^5.0.1
         version: 5.0.1
       '@types/node':
         specifier: ^20.11.17
         version: 20.17.25
+      trpc-ui:
+        specifier: ^1.0.15
+        version: 1.0.15(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@mui/material@5.17.1(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@trpc/server@11.0.0(typescript@5.8.2))(@types/react@19.0.10)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
       tsx:
         specifier: ^4.7.1
         version: 4.19.3
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
       vercel:
         specifier: ^32.4.1
         version: 32.7.2(@swc/core@1.11.11(@swc/helpers@0.5.15))
@@ -192,13 +198,13 @@ importers:
 
   packages/trpc:
     dependencies:
+      '@dko/database':
+        specifier: workspace:*
+        version: link:../database
       '@trpc/server':
         specifier: ^11.0.0
         version: 11.0.0(typescript@5.8.2)
     devDependencies:
-      '@dko/database':
-        specifier: workspace:*
-        version: link:../database
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config

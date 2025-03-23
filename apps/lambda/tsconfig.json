@@ -7,4 +7,5 @@
     "skipLibCheck": true,
     "strict": true,
   },
+  "include": ["./api/**/*.ts"],
 }
