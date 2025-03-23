@@ -4,7 +4,11 @@ import { appRouter, createTRPCContext, trpcExpress } from "@dko/trpc";
 
 //* Create an express app
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 //* Create a router to handle all API requests
 const router = Router();
